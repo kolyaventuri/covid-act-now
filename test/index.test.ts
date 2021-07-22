@@ -1,12 +1,17 @@
 import test from 'ava';
 import CovidActNow from '../src';
+import {states} from '../src/interfaces';
+import context from '../src/context';
 
 test('the API client can be instantiated with my key', t => {
   const key = 'abcd123';
+  new CovidActNow(key);
 
-  const client = new CovidActNow(key);
+  const state = context.getState();
+  t.is(state.key, key);
+});
 
-  // (kolyaventuri): Skirts around a TS error due to private member access
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  t.is((client as any).__key, key);
+const client = new CovidActNow('abc');
+test('contains the states interface', t => {
+  t.is(client.states, states);
 });

@@ -1,9 +1,11 @@
+import {states} from './interfaces';
+import context from './context';
+
 class CovidActNow {
-  // @ts-expect-error not yet implemented
-  private readonly __key: string;
+  readonly states = states;
 
   constructor(apiKey: string) {
-    this.__key = apiKey;
+    context.set('key', apiKey);
   }
 }
 
