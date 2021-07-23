@@ -18,7 +18,7 @@ export const buildUrl = (options: BuildUrlArgs): string => {
     name = name.endsWith('timeseries') ? 'US.timeseries' : 'US';
   }
 
-  const endpoint = scope ? input! : name;
+  const endpoint = scope && input ? input : name;
   const url = `${BASE_URL}${scopePrefix}${endpoint}.json?apiKey=${key}`;
 
   return url;

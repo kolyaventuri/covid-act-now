@@ -11,8 +11,8 @@ test('#buildUrl returns the right URL', t => {
 });
 
 test('#buildUrl can return a scoped URL', t => {
-  const result = buildUrl({name: 'data', scope: 'cbsa'});
-  t.is(result, `${BASE_URL}cbsa/data.json?apiKey=apikey`);
+  const result = buildUrl({name: 'data', scope: 'cbsa', input: 'blah'});
+  t.is(result, `${BASE_URL}cbsa/blah.json?apiKey=apikey`);
 });
 
 test('#buildUrl builds the correct URL for country data', t => {
