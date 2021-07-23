@@ -8,9 +8,9 @@ interface InterfaceMethod<T> {
 }
 
 export const dataInterface = <T>(name: string, scope: Scope | null = null): InterfaceMethod<T> => {
-  const __interfaceMethod = async (): Promise<T> => get<T>(buildUrl(name, scope));
+  const __interfaceMethod = async (input: string | null = null): Promise<T> => get<T>(buildUrl({name, scope, input}));
 
-  __interfaceMethod.timeseries = async (): Promise<T[]> => get<T[]>(buildUrl(`${name}.timeseries`, scope));
+  __interfaceMethod.timeseries = async (input: string | null = null): Promise<T[]> => get<T[]>(buildUrl({name: `${name}.timeseries`, scope, input}));
 
   return __interfaceMethod;
 };
