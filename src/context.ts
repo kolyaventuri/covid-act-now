@@ -8,10 +8,10 @@ const initialState: State = {
 
 const state = initialState;
 const context = {
-  set: (key: keyof State, value: State[typeof key]) => {
+  set: (key: keyof State, value: State[typeof key]): void => {
     state[key] = value;
   },
-  getState: () => state,
+  getState: (): State => state,
 };
 
 export default context;

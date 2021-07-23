@@ -5,7 +5,7 @@ import context from '../src/context';
 
 test('the API client can be instantiated with my key', t => {
   const key = 'abcd123';
-  new CovidActNow(key);
+  new CovidActNow(key); /* eslint-disable-line no-new */
 
   const state = context.getState();
   t.is(state.key, key);
