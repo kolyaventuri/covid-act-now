@@ -14,3 +14,8 @@ test('#buildUrl can return a scoped URL', t => {
   const result = buildUrl({name: 'data', scope: 'cbsa'});
   t.is(result, `${BASE_URL}cbsa/data.json?apiKey=apikey`);
 });
+
+test('#buildUrl builds the correct URL for country data', t => {
+  const result = buildUrl({name: 'country', scope: 'country'});
+  t.is(result, `${BASE_URL}country/US.json?apiKey=apikey`);
+});

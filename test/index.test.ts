@@ -1,6 +1,6 @@
 import test from 'ava';
 import CovidActNow from '../src';
-import {states, counties, metros} from '../src/interfaces';
+import * as interfaces from '../src/interfaces';
 import context from '../src/context';
 
 test('the API client can be instantiated with my key', t => {
@@ -12,14 +12,10 @@ test('the API client can be instantiated with my key', t => {
 });
 
 const client = new CovidActNow('abc');
-test('contains the states interface', t => {
-  t.is(client.states, states);
-});
-
-test('contains the counties interface', t => {
-  t.is(client.counties, counties);
-});
-
-test('contains the metros interface', t => {
-  t.is(client.metros, metros);
-});
+const expectedInterfaces = ['states', 'counties', 'metros', 'state', 'county', 'metro', 'country'];
+for (const name of expectedInterfaces) {
+  test(`contains the ${name} interface`, t => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    t.is((client as any)[name], (interfaces as any)[name]);
+  });
+}

@@ -9,9 +9,14 @@ interface BuildUrlArgs {
 }
 
 export const buildUrl = (options: BuildUrlArgs): string => {
-  const {name, scope} = options;
+  const {scope} = options;
+  let {name} = options;
 
   const {key} = context.getState() as {key: string};
   const scopePrefix = scope ? `${scope}/` : '';
+  if (scope === 'country') {
+    name = name.endsWith('timeseries') ? 'US.timeseries' : 'US';
+  }
+
   return `${BASE_URL}${scopePrefix}${name}.json?apiKey=${key}`;
 };

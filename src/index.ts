@@ -1,4 +1,4 @@
-import {states, counties, metros, state, county, metro} from './interfaces';
+import {states, counties, metros, state, county, metro, country} from './interfaces';
 import context from './context';
 
 class CovidActNow {
@@ -9,6 +9,8 @@ class CovidActNow {
   readonly state = state;
   readonly county = county;
   readonly metro = metro;
+
+  readonly country = country;
 
   constructor(apiKey: string) {
     context.set('key', apiKey);
