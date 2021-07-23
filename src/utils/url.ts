@@ -4,12 +4,12 @@ import {Scope} from '../types';
 
 interface BuildUrlArgs {
   name: string;
-  scope?: Scope;
-  input?: string;
+  scope?: Scope | null;
+  input?: string | null;
 }
 
-export const buildUrl = (opts: BuildUrlArgs): string => {
-  const {name, scope} = opts;
+export const buildUrl = (options: BuildUrlArgs): string => {
+  const {name, scope} = options;
 
   const {key} = context.getState() as {key: string};
   const scopePrefix = scope ? `${scope}/` : '';
