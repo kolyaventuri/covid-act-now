@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "esnext"
+      "esnext",
+      "dom"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
