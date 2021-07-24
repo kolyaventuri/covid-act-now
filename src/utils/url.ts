@@ -9,7 +9,7 @@ interface BuildUrlArgs {
 }
 
 export const buildUrl = (options: BuildUrlArgs): string => {
-  const {scope} = options;
+  const {scope, input} = options;
   let {name} = options;
 
   const {key} = context.getState() as {key: string};
@@ -18,5 +18,8 @@ export const buildUrl = (options: BuildUrlArgs): string => {
     name = name.endsWith('timeseries') ? 'US.timeseries' : 'US';
   }
 
-  return `${BASE_URL}${scopePrefix}${name}.json?apiKey=${key}`;
+  const endpoint = scope && input ? input : name;
+  const url = `${BASE_URL}${scopePrefix}${endpoint}.json?apiKey=${key}`;
+
+  return url;
 };
