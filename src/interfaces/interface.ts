@@ -2,7 +2,7 @@ import {get} from '../get';
 import {Scope} from '../types';
 import {buildUrl} from '../utils/url';
 
-interface InterfaceMethod<T> {
+export interface InterfaceMethod<T> {
   (input?: string): Promise<T>;
 
   timeseries(): Promise<T[]>;
