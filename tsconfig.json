@@ -1,24 +1,4 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": false,
-    "jsx": "preserve",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "declaration": true
-  },
-  "exclude": ["node_modules"],
+  "extends": "./tsconfig/tsconfig.base",
   "include": ["src", "test"]
 }
