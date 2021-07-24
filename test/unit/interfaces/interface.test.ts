@@ -34,3 +34,13 @@ test('if a scope is defined, the top level call accepts an argument', async t =>
 
   t.true(get.calledWith(buildUrl({name: 'scopeData', scope: 'county', input: 'foo'})));
 });
+
+test('if the scope is state, use the name as the input', async t => {
+  const scopedData = dataInterface('scopeData', 'state');
+
+  await scopedData();
+  await scopedData.timeseries();
+
+  t.true(get.calledWith(buildUrl({name: 'scopeData', scope: 'state', input: 'scopeData'})));
+  t.true(get.calledWith(buildUrl({name: 'scopeData.timeseries', scope: 'state', input: 'scopeData.timeseries'})));
+});
