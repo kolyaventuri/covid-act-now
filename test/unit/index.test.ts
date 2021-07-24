@@ -1,7 +1,7 @@
 import test from 'ava';
-import CovidActNow from '../src';
-import * as interfaces from '../src/interfaces';
-import context from '../src/context';
+import CovidActNow from '../../src';
+import * as interfaces from '../../src/interfaces';
+import context from '../../src/context';
 
 test('the API client can be instantiated with my key', t => {
   const key = 'abcd123';

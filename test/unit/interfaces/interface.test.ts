@@ -2,14 +2,14 @@ import test from 'ava';
 import proxyquire from 'proxyquire';
 import {stub} from 'sinon';
 
-import {dataInterface as realInterface} from '../../src/interfaces/interface';
-import context from '../../src/context';
-import {buildUrl} from '../../src/utils/url';
+import {dataInterface as realInterface} from '../../../src/interfaces/interface';
+import context from '../../../src/context';
+import {buildUrl} from '../../../src/utils/url';
 
 context.set('key', 'apikey');
 
 const get = stub();
-const {dataInterface} = proxyquire<{dataInterface: typeof realInterface}>('../../src/interfaces/interface', {
+const {dataInterface} = proxyquire<{dataInterface: typeof realInterface}>('../../../src/interfaces/interface', {
   '../get': {get},
 });
 

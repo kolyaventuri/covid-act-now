@@ -1,7 +1,7 @@
 import test from 'ava';
 import proxyquire from 'proxyquire';
 import {stub} from 'sinon';
-import {get as realGet} from '../src/get';
+import {get as realGet} from '../../src/get';
 
 const data = {foo: 'bar'};
 const fetchResponse = {
@@ -9,7 +9,7 @@ const fetchResponse = {
 };
 const fetch = stub().resolves(fetchResponse);
 
-const {get} = proxyquire<{get: typeof realGet}>('../src/get', {
+const {get} = proxyquire<{get: typeof realGet}>('../../src/get', {
   './fetch': {fetch},
 });
 

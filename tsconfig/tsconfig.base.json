@@ -19,6 +19,6 @@
     "declaration": true,
     "declarationDir": "../lib/dts"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "*.cjs"],
   "include": ["../src/**/*.ts"]
 }
