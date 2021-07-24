@@ -27,20 +27,23 @@ test('adds a timeseries call', async t => {
   t.true(get.calledWith(buildUrl({name: 'data.timeseries'})));
 });
 
-test('if a scope is defined, the top level call accepts an argument', async t => {
-  const scopedData = dataInterface('scopeData', 'county');
-
-  await scopedData('foo');
-
-  t.true(get.calledWith(buildUrl({name: 'scopeData', scope: 'county', input: 'foo'})));
-});
-
 test('if the scope is state, use the name as the input', async t => {
-  const scopedData = dataInterface('scopeData', 'state');
+  const scopedData = dataInterface('az', 'state');
 
   await scopedData();
   await scopedData.timeseries();
 
-  t.true(get.calledWith(buildUrl({name: 'scopeData', scope: 'state', input: 'scopeData'})));
-  t.true(get.calledWith(buildUrl({name: 'scopeData.timeseries', scope: 'state', input: 'scopeData.timeseries'})));
+  t.true(get.calledWith(buildUrl({name: 'az', scope: 'state', input: 'AZ'})));
+  t.true(get.calledWith(buildUrl({name: 'az.timeseries', scope: 'state', input: 'AZ.timeseries'})));
 });
+
+test('if the scope is county, use the name as the input', async t => {
+  const scopedData = dataInterface('01234', 'county');
+
+  await scopedData();
+  await scopedData.timeseries();
+
+  t.true(get.calledWith(buildUrl({name: '01234', scope: 'state', input: '01234'})));
+  t.true(get.calledWith(buildUrl({name: '01234.timeseries', scope: 'state', input: '01234.timeseries'})));
+});
+

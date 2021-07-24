@@ -8,11 +8,11 @@ export interface InterfaceMethod<T> {
   timeseries(): Promise<T[]>;
 }
 
-const definedScopes = new Set(['state']);
+const definedScopes = new Set(['state', 'county']);
 export const dataInterface = <T>(name: string, scope: Scope | null = null): InterfaceMethod<T> => {
   const __interfaceMethod = async (input: string | undefined = undefined): Promise<T> => {
     if (scope) {
-      const value = definedScopes.has(scope) ? name : input;
+      const value = definedScopes.has(scope) ? name.toUpperCase() : input;
       return get<T>(buildUrl({name, scope, input: String(value)}));
     }
 
@@ -20,9 +20,8 @@ export const dataInterface = <T>(name: string, scope: Scope | null = null): Inte
   };
 
   __interfaceMethod.timeseries = async (input: string | null = null): Promise<T[]> => {
-    const timeName = `${name}.timeseries`;
-    const value = definedScopes.has(scope!) ? timeName : input;
-    return get<T[]>(buildUrl({name: timeName, scope, input: String(value)}));
+    const value = definedScopes.has(scope!) ? `${name.toUpperCase()}.timeseries`: input;
+    return get<T[]>(buildUrl({name: `${name}.timeseries`, scope, input: String(value)}));
   };
 
   return __interfaceMethod;

@@ -12,4 +12,3 @@ test('calls a state interface with timeseries', async t => {
 
   await t.notThrowsAsync(fn);
 });
-
