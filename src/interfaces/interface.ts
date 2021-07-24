@@ -20,7 +20,7 @@ export const dataInterface = <T>(name: string, scope: Scope | null = null): Inte
   };
 
   __interfaceMethod.timeseries = async (input: string | null = null): Promise<T[]> => {
-    const value = definedScopes.has(scope!) ? `${name.toUpperCase()}.timeseries`: input;
+    const value = definedScopes.has(scope!) ? `${name.toUpperCase()}.timeseries` : input;
     return get<T[]>(buildUrl({name: `${name}.timeseries`, scope, input: String(value)}));
   };
 

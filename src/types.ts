@@ -1,2 +1,2 @@
 export type Scope = 'state' | 'county' | 'cbsa' | 'country';
-export type FipsCode = `${number}${number}${number}${number}${number}`
+export type FipsCode = `${number}${number}${number}${number}${number}`;

@@ -43,7 +43,7 @@ test('if the scope is county, use the name as the input', async t => {
   await scopedData();
   await scopedData.timeseries();
 
-  t.true(get.calledWith(buildUrl({name: '01234', scope: 'state', input: '01234'})));
-  t.true(get.calledWith(buildUrl({name: '01234.timeseries', scope: 'state', input: '01234.timeseries'})));
+  t.true(get.calledWith(buildUrl({name: '01234', scope: 'county', input: '01234'})));
+  t.true(get.calledWith(buildUrl({name: '01234.timeseries', scope: 'county', input: '01234.timeseries'})));
 });
 
