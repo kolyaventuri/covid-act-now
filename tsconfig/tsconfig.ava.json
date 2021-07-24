@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "noEmit": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "module": "esnext"
+  },
+  "exclude": [
+    "node_modules",
+    "test"
+  ]
+}

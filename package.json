@@ -24,7 +24,9 @@
     "lint-staged": "^11.0.1",
     "npm-run-all": "^4.1.5",
     "proxyquire": "^2.1.3",
+    "rimraf": "^3.0.2",
     "rollup": "^2.53.3",
+    "rollup-plugin-dts": "^3.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^11.1.1",
     "ts-node": "^10.1.0",
@@ -34,11 +36,12 @@
   },
   "scripts": {
     "test": "npm-run-all lint:* test:*",
-    "test:unit": "cross-env TS_NODE_PROJECT=tsconfig.ava.json ava",
+    "test:unit": "cross-env TS_NODE_PROJECT=tsconfig/tsconfig.ava.json ava",
     "lint": "npm-run-all lint:*",
     "lint:tsc": "tsc --noEmit",
     "lint:lint": "xo --fix",
-    "build": "rollup -c"
+    "build": "TS_NODE_PROJECT=tsconfig/tsconfig.build.json rollup -c",
+    "prebuild": "rimraf ./lib"
   },
   "repository": {
     "type": "git",
