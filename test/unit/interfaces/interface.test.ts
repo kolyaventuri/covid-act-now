@@ -47,3 +47,13 @@ test('if the scope is county, use the name as the input', async t => {
   t.true(get.calledWith(buildUrl({name: '01234.timeseries', scope: 'county', input: '01234.timeseries'})));
 });
 
+test('if the scope is metro, use the name as the input', async t => {
+  const scopedData = dataInterface('01234', 'cbsa');
+
+  await scopedData();
+  await scopedData.timeseries();
+
+  t.true(get.calledWith(buildUrl({name: '01234', scope: 'cbsa', input: '01234'})));
+  t.true(get.calledWith(buildUrl({name: '01234.timeseries', scope: 'cbsa', input: '01234.timeseries'})));
+});
+

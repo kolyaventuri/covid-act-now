@@ -8,7 +8,7 @@ export interface InterfaceMethod<T> {
   timeseries(): Promise<T[]>;
 }
 
-const definedScopes = new Set(['state', 'county']);
+const definedScopes = new Set(['state', 'county', 'cbsa']);
 export const dataInterface = <T>(name: string, scope: Scope | null = null): InterfaceMethod<T> => {
   const __interfaceMethod = async (input: string | undefined = undefined): Promise<T> => {
     if (scope) {

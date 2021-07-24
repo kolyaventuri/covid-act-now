@@ -6,6 +6,6 @@ export const metros = dataInterface('cbsas');
 
 export {state} from './state';
 export {county} from './county';
-export const metro = dataInterface('metro', 'cbsa');
+export {metro} from './metro';
 
 export const country = dataInterface('country', 'country');
