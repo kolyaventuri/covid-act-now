@@ -13,4 +13,3 @@ test('calls a metro interface with timeseries', async t => {
   await t.notThrowsAsync(fn);
 });
 
-
