@@ -1,3 +1,5 @@
+import {FipsCode} from '../types';
+
 interface ICUDetails {
   currentIcuCovid: number;
   currentIcuCovidMethod: 'actual' | 'estimated';
@@ -120,4 +122,28 @@ export interface ActualsTimeseries extends Actuals {
 export interface RiskLevelTimeseries {
   overall: ZeroToFive;
   date: string;
+}
+
+export interface Base {
+  fips: FipsCode;
+  country: string;
+  state: string | null;
+  county: FipsCode | null;
+  level: Level;
+  lat: number | null;
+  locationId: string;
+  long: number | null;
+  population: number;
+  metrics: Metrics;
+  riskLevels: RiskLevels;
+  actuals: Actuals;
+  annotations: Annotations;
+  lastUpdatedDate: string;
+  url: string | null;
+}
+
+export interface Timeseries {
+  metricsTimeseries: MetricsTimeseries[];
+  actualsTimeseries: ActualsTimeseries[];
+  riskLevelTimeseries: RiskLevelTimeseries[];
 }
