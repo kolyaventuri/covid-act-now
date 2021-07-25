@@ -1,6 +1,7 @@
+import {State, StateTimeseries} from '../types/state';
 import {dataInterface} from './interface';
 
-export const states = dataInterface('states');
+export const states = dataInterface<State[], StateTimeseries>('states');
 export const counties = dataInterface('counties');
 export const metros = dataInterface('cbsas');
 

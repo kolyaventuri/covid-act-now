@@ -1,9 +1,9 @@
 import {dataInterface, InterfaceMethod} from './interface';
 
-export interface CountryInterface extends InterfaceMethod<unknown> {
+export interface CountryInterface extends InterfaceMethod<unknown, unknown> {
   (): Promise<unknown>;
 
-  timeseries(): Promise<unknown[]>;
+  timeseries(): Promise<unknown>;
 }
 
 const input = 'US';
