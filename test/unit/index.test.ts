@@ -15,7 +15,6 @@ const client = new CovidActNow('abc');
 const expectedInterfaces = ['states', 'counties', 'metros', 'state', 'county', 'metro', 'country'];
 for (const name of expectedInterfaces) {
   test(`contains the ${name} interface`, t => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     t.is((client as any)[name], (interfaces as any)[name]);
   });
 }
