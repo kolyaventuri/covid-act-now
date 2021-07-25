@@ -4,6 +4,7 @@ import context from './context';
 import {StateInterfaces} from './interfaces/state';
 import {CountyInterface} from './interfaces/county';
 import {MetroInterface} from './interfaces/metro';
+import {CountryInterface} from './interfaces/country';
 
 class CovidActNow {
   readonly states: InterfaceMethod<unknown> = states;
@@ -14,7 +15,7 @@ class CovidActNow {
   readonly county: CountyInterface = county;
   readonly metro: MetroInterface = metro;
 
-  readonly country: InterfaceMethod<unknown> = country;
+  readonly country: CountryInterface = country;
 
   constructor(apiKey: string) {
     context.set('key', apiKey);

@@ -8,4 +8,4 @@ export {state} from './state';
 export {county} from './county';
 export {metro} from './metro';
 
-export const country = dataInterface('country', 'country');
+export {country} from './country';

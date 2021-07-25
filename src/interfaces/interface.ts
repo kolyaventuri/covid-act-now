@@ -5,7 +5,7 @@ import {buildUrl} from '../utils/url';
 export interface InterfaceMethod<T> {
   (input?: string): Promise<T>;
 
-  timeseries(): Promise<T[]>;
+  timeseries(input?: string): Promise<T[]>;
 }
 
 const definedScopes = new Set(['state', 'county', 'cbsa']);
