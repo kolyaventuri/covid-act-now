@@ -20,6 +20,6 @@ export const timeoutTest = async (func: (...args: any[]) => Promise<any>, timeou
   await delay(timeout);
 
   if (hasFailed) {
-    throw new Error('TEst did not pass within the timeout, for an unknown reason');
+    throw new Error('Test did not pass within the timeout, for an unknown reason');
   }
 };
