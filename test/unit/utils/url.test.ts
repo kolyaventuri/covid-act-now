@@ -1,7 +1,7 @@
 import test from 'ava';
-import {BASE_URL} from '../../src/constants/urls';
-import context from '../../src/context';
-import {buildUrl} from '../../src/utils/url';
+import {BASE_URL} from '../../../src/constants/urls';
+import context from '../../../src/context';
+import {buildUrl} from '../../../src/utils/url';
 
 context.set('key', 'apikey');
 

@@ -18,6 +18,7 @@
     "@typescript-eslint/parser": "^4.28.4",
     "ava": "^3.15.0",
     "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "eslint": "^7.31.0",
     "eslint-config-xo": "^0.37.0",
     "eslint-config-xo-typescript": "^0.43.0",
@@ -38,8 +39,9 @@
     "xo": "^0.42.0"
   },
   "scripts": {
-    "test": "npm-run-all lint:* test:*",
-    "test:unit": "cross-env TS_NODE_PROJECT=tsconfig/tsconfig.ava.json ava",
+    "test": "npm-run-all lint:* test:unit",
+    "test:unit": "cross-env TS_NODE_PROJECT=tsconfig/tsconfig.ava.json ava --config ava.base.cjs test/unit/**/*.ts",
+    "test:integration": "cross-env TS_NODE_PROJECT=tsconfig/tsconfig.ava.json ava --config ava.integration.cjs test/integration/helpers/env.ts test/integration/**/*.test.ts",
     "lint": "npm-run-all lint:*",
     "lint:tsc": "tsc --noEmit",
     "lint:lint": "xo --fix",
@@ -84,7 +86,9 @@
       "strict": true
     },
     "rules": {
+      "ava/no-ignored-test-files": 0,
       "@typescript-eslint/camelcase": 0,
+      "@typescript-eslint/no-non-null-assertion": 0,
       "@typescript-eslint/naming-convention": [
         "error",
         {
@@ -109,7 +113,8 @@
       {
         "files": "test/**/*.ts",
         "rules": {
-          "@typescript-eslint/explicit-function-return-type": 0
+          "@typescript-eslint/explicit-function-return-type": 0,
+          "@typescript-eslint/no-unsafe-member-access": 0
         }
       }
     ],
@@ -127,20 +132,7 @@
     ],
     "ignore": [
       "*.js",
-      "scripts/**/*"
-    ]
-  },
-  "ava": {
-    "extensions": [
-      "ts"
-    ],
-    "files": [
-      "test/**/*.test.ts?(x)"
-    ],
-    "require": [
-      "esm",
-      "ts-node/register",
-      "tsconfig-paths/register"
+      "*.cjs"
     ]
   }
 }

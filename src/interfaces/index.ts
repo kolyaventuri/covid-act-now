@@ -4,8 +4,8 @@ export const states = dataInterface('states');
 export const counties = dataInterface('counties');
 export const metros = dataInterface('cbsas');
 
-export const state = dataInterface('state', 'state');
-export const county = dataInterface('county', 'county');
-export const metro = dataInterface('metro', 'cbsa');
+export {state} from './state';
+export {county} from './county';
+export {metro} from './metro';
 
-export const country = dataInterface('country', 'country');
+export {country} from './country';

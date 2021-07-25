@@ -1,7 +1,7 @@
 import test from 'ava';
 
-import {dataInterface} from '../../src/interfaces/interface';
-import {states, counties, metros, state, county, metro, country} from '../../src/interfaces';
+import {dataInterface} from '../../../src/interfaces/interface';
+import {states, counties, metros, county, metro, country} from '../../../src/interfaces';
 
 test('states is an instance of Interface', t => {
   t.true(typeof states === typeof dataInterface('states'));
@@ -12,14 +12,10 @@ test('counties is an instance of Interface', t => {
 });
 
 test('metros is an instance of Interface', t => {
-  t.true(typeof metros === typeof dataInterface('states'));
+  t.true(typeof metros === typeof dataInterface('cbsas'));
 });
 
 ///
-
-test('state is an instance of Interface', t => {
-  t.true(typeof state === typeof dataInterface('state', 'state'));
-});
 
 test('county is an instance of Interface', t => {
   t.true(typeof county === typeof dataInterface('county', 'county'));
