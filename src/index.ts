@@ -5,11 +5,14 @@ import {StateInterfaces} from './interfaces/state';
 import {CountyInterface} from './interfaces/county';
 import {MetroInterface} from './interfaces/metro';
 import {CountryInterface} from './interfaces/country';
+import {State, StateTimeseries} from './types/state';
+import {County, CountyTimeseries} from './types/county';
+import {Metro, MetroTimeseries} from './types/metro';
 
 class CovidActNow {
-  readonly states: InterfaceMethod<unknown> = states;
-  readonly counties: InterfaceMethod<unknown> = counties;
-  readonly metros: InterfaceMethod<unknown> = metros;
+  readonly states: InterfaceMethod<State[], StateTimeseries[]> = states;
+  readonly counties: InterfaceMethod<County[], CountyTimeseries[]> = counties;
+  readonly metros: InterfaceMethod<Metro[], MetroTimeseries[]> = metros;
 
   readonly state: StateInterfaces = state;
   readonly county: CountyInterface = county;

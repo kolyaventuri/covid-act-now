@@ -1,14 +1,15 @@
+import {Country, CountryTimeseries} from '../types/country';
 import {dataInterface, InterfaceMethod} from './interface';
 
-export interface CountryInterface extends InterfaceMethod<unknown> {
-  (): Promise<unknown>;
+export interface CountryInterface extends InterfaceMethod<Country, CountryTimeseries> {
+  (): Promise<Country>;
 
-  timeseries(): Promise<unknown[]>;
+  timeseries(): Promise<CountryTimeseries>;
 }
 
 const input = 'US';
 const countryInterface: CountryInterface = (() => {
-  const _interface = dataInterface('country', 'country');
+  const _interface = dataInterface<Country, CountryTimeseries>('country', 'country');
 
   const mainMethod: CountryInterface = async () => _interface(input);
 
