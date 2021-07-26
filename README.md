@@ -13,6 +13,7 @@ _Note:_ @kolyaventuri is not affiliated with CovidActNow in any way. This is mor
 # Installing
 Browser:
 `<script type="text/javascript" src="https://unpkg.com/@kolyaventuri/covid-act-now"/>`
+
 Node:
 `npm install @kolyaventuri/covid-act-now`
 
