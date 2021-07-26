@@ -1,6 +1,6 @@
 {
   "name": "@kolyaventuri/covid-act-now",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2",
   "description": "CovidActNow.org API client",
   "main": "lib/index.js",
   "dependencies": {
