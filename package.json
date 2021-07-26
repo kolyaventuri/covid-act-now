@@ -134,7 +134,8 @@
     ],
     "ignore": [
       "*.js",
-      "*.cjs"
+      "*.cjs",
+      "lib/index.d.ts"
     ]
   }
 }
