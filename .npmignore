@@ -8,3 +8,4 @@ img/
 .env.example
 rollup.config.js
 tsconfig.json
+.env
