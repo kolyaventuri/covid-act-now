@@ -1,6 +1,6 @@
 {
-  "name": "covid-act-now",
-  "version": "1.0.0",
+  "name": "@kolyaventuri/covid-act-now",
+  "version": "1.0.1",
   "description": "CovidActNow.org API client",
   "main": "lib/index.js",
   "dependencies": {
@@ -54,7 +54,9 @@
   },
   "keywords": [
     "covid",
-    "api"
+    "api",
+    "health",
+    "data"
   ],
   "author": "Kolya Venturi <me@kolya.co>",
   "license": "GPL-3.0-or-later",
