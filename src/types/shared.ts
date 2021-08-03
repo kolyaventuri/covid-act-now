@@ -119,7 +119,7 @@ export interface ActualsTimeseries extends Actuals {
   date: string;
 }
 
-export interface RiskLevelTimeseries {
+export interface RiskLevelsTimeseries {
   overall: ZeroToFive;
   date: string;
 }
@@ -145,5 +145,5 @@ export interface Base {
 export interface Timeseries {
   metricsTimeseries: MetricsTimeseries[];
   actualsTimeseries: ActualsTimeseries[];
-  riskLevelTimeseries: RiskLevelTimeseries[];
+  riskLevelsTimeseries: RiskLevelsTimeseries[];
 }
