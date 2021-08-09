@@ -113,7 +113,7 @@ interface MetricsTimeseries extends Metrics {
 interface ActualsTimeseries extends Actuals {
     date: string;
 }
-interface RiskLevelTimeseries {
+interface RiskLevelsTimeseries {
     overall: ZeroToFive;
     date: string;
 }
@@ -137,7 +137,7 @@ interface Base {
 interface Timeseries {
     metricsTimeseries: MetricsTimeseries[];
     actualsTimeseries: ActualsTimeseries[];
-    riskLevelTimeseries: RiskLevelTimeseries[];
+    riskLevelsTimeseries: RiskLevelsTimeseries[];
 }
 
 interface State extends Base {
