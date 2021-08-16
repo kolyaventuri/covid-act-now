@@ -1,7 +1,7 @@
 import typescript from '@rollup/plugin-typescript';
 import {terser} from 'rollup-plugin-terser';
 import dts from 'rollup-plugin-dts';
-import {cleanupBuild, cleanupDts} from './rollup/cleanup';
+import {cleanupBuild, cleanupDts, cloneTypes} from './rollup/cleanup';
 
 export default [
   {
@@ -12,11 +12,11 @@ export default [
       name: 'covidActNow',
       plugins: [terser()]
     },
-    plugins: [typescript(), cleanupBuild()]
+    plugins: [typescript(), cleanupBuild(), cloneTypes()]
   },
   {
     input: './lib/dts/index.d.ts',
     output: [{file: 'lib/index.d.ts', format: 'umd'}],
     plugins: [dts(), cleanupDts()]
-  }
+  },
 ];
