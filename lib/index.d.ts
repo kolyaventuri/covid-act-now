@@ -1,12 +1,4 @@
 declare type FipsCode = `${number}${number}${number}${number}${number}`;
-
-interface InterfaceMethod<T, P> {
-    (input?: string): Promise<T>;
-    timeseries(input?: string): Promise<P>;
-}
-
-declare const STATES: readonly ["ak", "al", "ar", "az", "ca", "co", "ct", "dc", "de", "fl", "ga", "hi", "ia", "id", "il", "in", "ks", "ky", "la", "ma", "md", "me", "mi", "mn", "mo", "mp", "ms", "mt", "nc", "nd", "ne", "nh", "nj", "nm", "nv", "ny", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd", "tn", "tx", "ut", "va", "vt", "wa", "wi", "wv", "wy"];
-
 interface ICUDetails {
     currentIcuCovid: number;
     currentIcuCovidMethod: 'actual' | 'estimated';
@@ -140,6 +132,11 @@ interface Timeseries {
     riskLevelsTimeseries: RiskLevelsTimeseries[];
 }
 
+interface Country extends Base {
+}
+interface CountryTimeseries extends Base, Timeseries {
+}
+
 interface State extends Base {
 }
 interface StateTimeseries extends Base, Timeseries {
@@ -149,6 +146,13 @@ interface County extends Base {
 }
 interface CountyTimeseries extends Base, Timeseries {
 }
+
+interface InterfaceMethod<T, P> {
+    (input?: string): Promise<T>;
+    timeseries(input?: string): Promise<P>;
+}
+
+declare const STATES: readonly ["ak", "al", "ar", "az", "ca", "co", "ct", "dc", "de", "fl", "ga", "hi", "ia", "id", "il", "in", "ks", "ky", "la", "ma", "md", "me", "mi", "mn", "mo", "mp", "ms", "mt", "nc", "nd", "ne", "nh", "nj", "nm", "nv", "ny", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd", "tn", "tx", "ut", "va", "vt", "wa", "wi", "wv", "wy"];
 
 declare type StateKey = typeof STATES[number];
 declare type CountiesInterface = InterfaceMethod<County[], CountyTimeseries[]>;
@@ -168,11 +172,6 @@ interface MetroTimeseries extends Base, Timeseries {
 }
 
 declare type MetroInterface = (fips: FipsCode) => InterfaceMethod<Metro, MetroTimeseries>;
-
-interface Country extends Base {
-}
-interface CountryTimeseries extends Base, Timeseries {
-}
 
 interface CountryInterface extends InterfaceMethod<Country, CountryTimeseries> {
     (): Promise<Country>;

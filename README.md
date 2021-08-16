@@ -28,6 +28,12 @@ const client = new CovidActNow(`{API_KEY}`);
 await client.state.az(); // Get current data for Arizona
 ```
 
+## Typescript Support
+Types are importable on their own via the `/types` directory
+```ts
+import {County} from '@kolyaventuri/covid-act-now/types';
+```
+
 # The API
 Generally the structure follows what is outlined on CovidActNow.org, under their API docs section (https://apidocs.covidactnow.org/api/). The schema outlined in their docs is equivalent to the included type definitions.
 ---

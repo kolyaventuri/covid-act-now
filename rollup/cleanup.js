@@ -30,3 +30,13 @@ export const cleanupDts = () => ({
     await rimrafAsync(declarationPath);
   }
 });
+
+export const cloneTypes = () => ({
+  name: 'covid-act-now-clone-types',
+  async writeBundle() {
+    const typePath = path.join(__dirname, 'src/types');
+    const dest = path.join(__dirname, 'types');
+
+    await fs.copy(typePath, dest);
+  }
+});

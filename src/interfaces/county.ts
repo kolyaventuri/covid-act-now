@@ -1,4 +1,4 @@
-import {FipsCode} from '../types';
+import {FipsCode} from '../types/shared';
 import {County, CountyTimeseries} from '../types/county';
 import {dataInterface, InterfaceMethod} from './interface';
 

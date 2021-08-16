@@ -1,4 +1,4 @@
-import {FipsCode} from '../types';
+import {FipsCode} from '../types/shared';
 import {Metro, MetroTimeseries} from '../types/metro';
 import {dataInterface, InterfaceMethod} from './interface';
 

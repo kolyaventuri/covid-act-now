@@ -1,5 +1,5 @@
 import {STATES} from '../constants/keys';
-import {FipsCode} from '../types';
+import {FipsCode} from '../types/shared';
 import {State, StateTimeseries} from '../types/state';
 import {County, CountyTimeseries} from '../types/county';
 import {dataInterface, InterfaceMethod} from './interface';
